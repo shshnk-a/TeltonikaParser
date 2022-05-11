@@ -15,7 +15,6 @@
   "scripts": {
     "test": "tsc && cd build && node Scripts/index.js",
     "build": "tsc",
-    "install": "npm run build",
     "push": "tsc && git commit -a -m \"fork alteration.\" && git push origin master"
   },
   "keywords": [
