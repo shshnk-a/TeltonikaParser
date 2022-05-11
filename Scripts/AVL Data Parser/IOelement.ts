@@ -220,8 +220,8 @@ export class IOelement {
                     safeSet(id, value)
                 }
             }
-        } catch (e : any) {
-            if (on_error != null) on_error(e);
+        } catch (e) {
+            if (on_error != null) on_error(new Error());
         }
     }
 }
