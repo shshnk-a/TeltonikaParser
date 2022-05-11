@@ -26,6 +26,14 @@ export class PacketReader <T> {
         this.Index += to_read;
         return this.Converter(value);
     }
+    
+    readRaw(length : number) {
+        this._validateLength(length);
+        var to_read = length * this.UnitSize;
+        var value = this.Content.substring(this.Index, this.Index + to_read);
+        this.Index += to_read;
+        return value;
+    }
 
     readEnd(length : number) {
         this._validateLength(length);

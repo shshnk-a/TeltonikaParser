@@ -195,7 +195,7 @@ export class IOelement {
                 if (elements_count-- <= 0) break;
                 //elements_count--;
                 var id = reader.read(id_size);
-                var value = reader.read(element_value_length);
+                var value = reader.readRaw(element_value_length);
                 safeSet(id, value)
                 // if (this.Elements.hasOwnProperty(`${id}`)) {
                 //     throw new Error(`Repeated id '${id}' in IOElement.`);
@@ -216,11 +216,11 @@ export class IOelement {
                 for (var i = 0; i < elements_count; i++) {
                     var id = reader.read(2);
                     element_value_length = reader.read(2);
-                    var value = reader.read(element_value_length);
+                    var value = reader.readRaw(element_value_length);
                     safeSet(id, value)
                 }
             }
-        } catch (e) {
+        } catch (e : any) {
             if (on_error != null) on_error(e);
         }
     }
